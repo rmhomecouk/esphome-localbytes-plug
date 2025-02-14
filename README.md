@@ -11,6 +11,8 @@ Please note this does not enable [API Encryption](https://esphome.io/components/
 substitutions:
   name: power-<LOCATION>-<NAME>
   friendly_name: LOCATION NAME POWER
+  area: Office
+  comment: "this is a comment"
 
 packages:
   localbytes.plug-pm: github://rmhomecouk/esphome-localbytes-plug/localbytes-plug-pm.yaml@main
@@ -19,6 +21,8 @@ esphome:
   name: ${name}
   name_add_mac_suffix: false
   friendly_name: ${friendly_name}
+  area: ${area}
+  comment: ${comment}
 
 wifi:
   ssid: !secret wifi_ssid
