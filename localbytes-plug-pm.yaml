@@ -218,7 +218,7 @@ sensor:
       accuracy_decimals: 0
       filters:
         - lambda: return x * id(voltage_multiply);
-        - delta: 1
+        - delta: 0.5
         #- round: 1
         
     power:
