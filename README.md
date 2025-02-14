@@ -13,7 +13,7 @@ substitutions:
   friendly_name: Localbytes Plug PM <NAME>
 
 packages:
-  localbytes.plug-pm: github://LocalBytes/esphome-localbytes-plug/localbytes-plug-pm.yaml@main
+  localbytes.plug-pm: github://rmhomecouk/esphome-localbytes-plug/localbytes-plug-pm.yaml@main
 
 esphome:
   name: ${name}
