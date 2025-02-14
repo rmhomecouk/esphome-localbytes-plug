@@ -200,6 +200,8 @@ sensor:
   - platform: wifi_signal
     name: "WiFi Status"
     update_interval: 30s
+    filters:
+      - delta: 2
 
   # Power Monitoring
   - platform: hlw8012
