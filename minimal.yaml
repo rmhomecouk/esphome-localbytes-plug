@@ -9,7 +9,7 @@ substitutions:
   # Aka: `restore_mode` in documentation
   # Options: `RESTORE_DEFAULT_OFF`, `RESTORE_DEFAULT_ON`, `ALWAYS_ON` & `ALWAYS_OFF`
   default_state: "RESTORE_DEFAULT_OFF"
-  update_interval: 30s
+  update_interval: 5s
 
 esphome:
   name: "${name}"
