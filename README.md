@@ -24,7 +24,8 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-web_server:
+# Flash manually first, uncomment web_server and flash wirelessly
+#web_server:
  
 ```
 
