@@ -9,8 +9,8 @@ Please note this does not enable [API Encryption](https://esphome.io/components/
 
 ```yaml
 substitutions:
-  name: localbytes-plug-pm-<NAME>
-  friendly_name: Localbytes Plug PM <NAME>
+  name: power-<LOCATION>-<NAME>
+  friendly_name: LOCATION NAME POWER
 
 packages:
   localbytes.plug-pm: github://rmhomecouk/esphome-localbytes-plug/localbytes-plug-pm.yaml@main
