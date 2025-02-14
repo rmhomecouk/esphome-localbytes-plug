@@ -199,7 +199,7 @@ sensor:
   # WiFi Signal Sensor
   - platform: wifi_signal
     name: "WiFi Status"
-    update_interval: 60s
+    update_interval: "${update_interval}"
 
   # Power Monitoring
   - platform: hlw8012
