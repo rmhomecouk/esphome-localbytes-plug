@@ -199,7 +199,7 @@ sensor:
   # WiFi Signal Sensor
   - platform: wifi_signal
     name: "WiFi Status"
-    update_interval: "${update_interval}"
+    update_interval: 30s
 
   # Power Monitoring
   - platform: hlw8012
@@ -215,7 +215,7 @@ sensor:
       name: "Voltage"
       id: voltage
       unit_of_measurement: V
-      accuracy_decimals: 1
+      accuracy_decimals: 0
       filters:
         - lambda: return x * id(voltage_multiply);
         - delta: 1
