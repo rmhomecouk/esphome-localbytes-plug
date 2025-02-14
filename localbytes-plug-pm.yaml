@@ -209,7 +209,7 @@ sensor:
       inverted: true
     cf_pin: GPIO5
     cf1_pin: GPIO14
-    update_interval: 10s
+    update_interval: "${update_interval}"
     
     voltage:
       name: "Voltage"
