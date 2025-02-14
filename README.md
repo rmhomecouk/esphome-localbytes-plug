@@ -12,7 +12,7 @@ substitutions:
   name: power-<LOCATION>-<NAME>
   friendly_name: LOCATION NAME POWER
   area: Office
-  comment: "this is a comment"
+  comment: "calbiration values: c:0.xxx p:0.xxx v:0.xxx"
 
 packages:
   localbytes.plug-pm: 
