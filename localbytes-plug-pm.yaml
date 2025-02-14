@@ -68,7 +68,7 @@ binary_sensor:
   # Push Button (Toggles Relay When Pressed)
   - platform: gpio
     pin:
-      number: GPIO3
+      number: GPIO13
       mode: INPUT_PULLUP
       inverted: true
     name: "Button"
@@ -99,7 +99,7 @@ switch:
   - platform: gpio
     name: ""
     icon: "mdi:${main_icon}"
-    pin: GPIO14
+    pin: GPIO15
     id: relay
     restore_mode: "${default_state}"
     on_turn_on:
@@ -207,8 +207,8 @@ sensor:
     sel_pin:
       number: GPIO12
       inverted: true
-    cf_pin: GPIO4
-    cf1_pin: GPIO5
+    cf_pin: GPIO5
+    cf1_pin: GPIO14
     update_interval: 10s
     
     voltage:
@@ -298,7 +298,7 @@ output:
   - platform: esp8266_pwm
     id: state_led
     pin:
-      number: GPIO13
+      number: GPIO02
       inverted: true
 
 light:
