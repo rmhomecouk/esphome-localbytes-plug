@@ -15,7 +15,11 @@ substitutions:
   comment: "this is a comment"
 
 packages:
-  localbytes.plug-pm: github://rmhomecouk/esphome-localbytes-plug/localbytes-plug-pm.yaml@main
+  localbytes.plug-pm: 
+    url: https://github.com/rmhomecouk/esphome-localbytes-plug
+    files: [localbytes-plug-pm.yaml]
+    ref: main
+    refresh: 1h
 
 esphome:
   name: ${name}
