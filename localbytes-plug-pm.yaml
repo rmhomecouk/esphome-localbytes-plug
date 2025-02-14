@@ -10,7 +10,7 @@ esphome:
           if (id(current_multiply) <= 0) id(current_multiply) = 0.85;
 
 wifi:
-  power_save_mode: high
+  power_save_mode: none
 
 time:
   - platform: homeassistant
@@ -218,6 +218,8 @@ sensor:
       accuracy_decimals: 1
       filters:
         - lambda: return x * id(voltage_multiply);
+        - delta: 1
+        #- round: 1
         
     power:
       name: "Power"
@@ -226,6 +228,8 @@ sensor:
       accuracy_decimals: 0
       filters:
         - lambda: return x * id(power_multiply);
+        - delta: 10
+        #- round: 0
         
     current:
       name: "Current"
@@ -234,13 +238,15 @@ sensor:
       accuracy_decimals: 3
       filters:
         - lambda: return x * id(current_multiply);
+        - delta: 10
+        #- round: 3
           
   # Total daily energy sensor
   - platform: total_daily_energy
     name: "Daily Energy"
     device_class: energy
     power_id: power
-    restore: false
+    restore: true
     filters:
       # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
