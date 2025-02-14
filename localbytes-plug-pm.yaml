@@ -309,5 +309,5 @@ light:
 button:
   - platform: restart
     name: "Restart"
-  - platform: factory_reset
-    name: "Restart with Factory Default Settings"
+  # - platform: factory_reset
+  #   name: "Restart with Factory Default Settings"
