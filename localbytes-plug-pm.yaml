@@ -302,18 +302,25 @@ number:
         id(current_multiply) = x;
 
 # Relay State LED
-output:
-  - platform: esp8266_pwm
-    id: state_led
-    pin:
-      number: GPIO02
-      inverted: true
+# output:
+#   - platform: esp8266_pwm
+#     id: state_led
+#     pin:
+#       number: GPIO02
+#       inverted: true
 
-light:
-  - platform: binary
-    output: state_led
-    id: led
+# light:
+#   - platform: binary
+#     output: state_led
+#     id: led
 
+# Status LED
+status_led:
+  pin:
+    number: GPIO02
+    inverted: true
+
+    
 button:
   - platform: restart
     name: "Restart"
