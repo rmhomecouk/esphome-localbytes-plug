@@ -217,20 +217,20 @@ sensor:
       name: "Voltage"
       id: voltage
       unit_of_measurement: V
-      accuracy_decimals: 0
+      accuracy_decimals: 1
       filters:
         - lambda: return x * id(voltage_multiply);
-        - delta: 0.5
+        #- delta: 0.5
         #- round: 1
         
     power:
       name: "Power"
       id: power
       unit_of_measurement: W
-      accuracy_decimals: 0
+      accuracy_decimals: 1
       filters:
         - lambda: return x * id(power_multiply);
-        - delta: 10
+        #- delta: 10
         #- round: 0
         
     current:
@@ -240,7 +240,7 @@ sensor:
       accuracy_decimals: 3
       filters:
         - lambda: return x * id(current_multiply);
-        - delta: 10
+        #- delta: 10
         #- round: 3
           
   # Total daily energy sensor
