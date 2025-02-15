@@ -11,15 +11,23 @@ Please note this does not enable [API Encryption](https://esphome.io/components/
 substitutions:
   name: power-<LOCATION>-<NAME>
   friendly_name: LOCATION NAME POWER
-  area: Office
-  comment: "calbiration values: c:0.xxx p:0.xxx v:0.xxx"
+  area: LOCATION
+
+  calibrated_c: "0.722"
+  calibrated_p: "0.151"
+  calibrated_v: "0.402"
+
+  comment: "Calibrated: 2025-02-15 - c:${calibrated_c} p:${calibrated_p} v:${calibrated_v}"
+
+  update_interval: 10s
+  default_state: "ALWAYS_ON"
 
 packages:
   localbytes.plug-pm: 
     url: https://github.com/rmhomecouk/esphome-localbytes-plug
     files: [localbytes-plug-pm.yaml]
     ref: main
-    refresh: 1h
+    refresh: 1min
 
 esphome:
   name: ${name}
@@ -27,6 +35,12 @@ esphome:
   friendly_name: ${friendly_name}
   area: ${area}
   comment: ${comment}
+  on_boot: 
+    then:
+      - lambda: |
+          id(voltage_multiply) = ${calibrated_v};
+          id(power_multiply) = ${calibrated_p};
+          id(current_multiply) = ${calibrated_c};
 
 wifi:
   ssid: !secret wifi_ssid
@@ -34,6 +48,7 @@ wifi:
 
 # Flash manually first, uncomment web_server and flash wirelessly
 #web_server:
+ 
  
 ```
 
