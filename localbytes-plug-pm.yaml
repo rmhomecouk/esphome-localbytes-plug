@@ -315,10 +315,10 @@ light:
     id: led
 
 # Status LED
-status_led:
-  pin:
-    number: GPIO02
-    inverted: true
+# status_led:
+#   pin:
+#     number: GPIO02
+#     inverted: true
 
     
 button:
