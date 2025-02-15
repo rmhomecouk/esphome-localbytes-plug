@@ -81,10 +81,10 @@ binary_sensor:
             then:
               switch.toggle: relay
 
-      - min_length: 1.5s
-        max_length: 5s
-        then:
-          switch.toggle: disable_led
+      # - min_length: 1.5s
+      #   max_length: 5s
+      #   then:
+      #     switch.toggle: disable_led
 
       - min_length: 8s
         max_length: 12s
