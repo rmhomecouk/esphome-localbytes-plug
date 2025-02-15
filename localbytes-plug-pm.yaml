@@ -81,10 +81,10 @@ binary_sensor:
             then:
               switch.toggle: relay
 
-      # - min_length: 1.5s
-      #   max_length: 5s
-      #   then:
-      #     switch.toggle: disable_led
+      - min_length: 1.5s
+        max_length: 5s
+        then:
+          switch.toggle: disable_led
 
       - min_length: 8s
         max_length: 12s
@@ -102,51 +102,51 @@ switch:
     pin: GPIO15
     id: relay
     restore_mode: "${default_state}"
-    # on_turn_on:
-    #   if:
-    #     condition:
-    #       switch.is_off: disable_led
-    #     then:
-    #       light.turn_on:
-    #         id: led
-    # on_turn_off:
-    #   - light.turn_off:
-    #       id: led
+    on_turn_on:
+      if:
+        condition:
+          switch.is_off: disable_led
+        then:
+          light.turn_on:
+            id: led
+    on_turn_off:
+      - light.turn_off:
+          id: led
 
-  # - platform: template
-  #   name: "Disable LED"
-  #   id: disable_led
-  #   icon: "mdi:led-variant-off"
-  #   restore_mode: RESTORE_DEFAULT_ON
-  #   optimistic: true
-  #   on_turn_on:
-  #     #Flash twice
-  #     - light.turn_off: led
-  #     - delay: 0.1s
-  #     - light.turn_on: led
-  #     - delay: 0.1s
-  #     - light.turn_off: led
-  #     - delay: 0.1s
-  #     - light.turn_on: led
-  #     - delay: 0.1s
-  #     #Final state
-  #     - light.turn_off: led
-  #   on_turn_off:
-  #     #Flash twice
-  #     - light.turn_on: led
-  #     - delay: 0.1s
-  #     - light.turn_off: led
-  #     - delay: 0.1s
-  #     - light.turn_on: led
-  #     - delay: 0.1s
-  #     - light.turn_off: led
-  #     - delay: 0.7s
-  #     #Final state
-  #     - if:
-  #         condition:
-  #           switch.is_on: relay
-  #         then:
-  #           light.turn_on: led
+  - platform: template
+    name: "Disable LED"
+    id: disable_led
+    icon: "mdi:led-variant-off"
+    restore_mode: RESTORE_DEFAULT_ON
+    optimistic: true
+    on_turn_on:
+      #Flash twice
+      - light.turn_off: led
+      - delay: 0.1s
+      - light.turn_on: led
+      - delay: 0.1s
+      - light.turn_off: led
+      - delay: 0.1s
+      - light.turn_on: led
+      - delay: 0.1s
+      #Final state
+      - light.turn_off: led
+    on_turn_off:
+      #Flash twice
+      - light.turn_on: led
+      - delay: 0.1s
+      - light.turn_off: led
+      - delay: 0.1s
+      - light.turn_on: led
+      - delay: 0.1s
+      - light.turn_off: led
+      - delay: 0.7s
+      #Final state
+      - if:
+          condition:
+            switch.is_on: relay
+          then:
+            light.turn_on: led
 
   - platform: template
     name: "Disable Button"
@@ -154,46 +154,46 @@ switch:
     icon: "mdi:toggle-switch-off-outline"
     restore_mode: RESTORE_DEFAULT_OFF
     optimistic: true
-    # on_turn_on:
-    #   #Flash thrice
-    #   - light.turn_off: led
-    #   - delay: 0.15s
-    #   - light.turn_on: led
-    #   - delay: 0.15s
-    #   - light.turn_off: led
-    #   - delay: 0.15s
-    #   - light.turn_on: led
-    #   - delay: 0.15s
-    #   - light.turn_off: led
-    #   - delay: 0.15s
-    #   - light.turn_on: led
-    #   - delay: 0.15s
-    #     #Final state
-    #   - if:
-    #       condition:
-    #         switch.is_off: relay
-    #       then:
-    #         light.turn_off: led
-    # on_turn_off:
-    #   #Flash thrice
-    #   - light.turn_on: led
-    #   - delay: 0.15s
-    #   - light.turn_off: led
-    #   - delay: 0.15s
-    #   - light.turn_on: led
-    #   - delay: 0.15s
-    #   - light.turn_off: led
-    #   - delay: 0.15s
-    #   - light.turn_on: led
-    #   - delay: 0.15s
-    #   - light.turn_off: led
-    #   - delay: 0.7s
-    #   #Final state
-    #   - if:
-    #       condition:
-    #         switch.is_on: relay
-    #       then:
-    #         light.turn_on: led
+    on_turn_on:
+      #Flash thrice
+      - light.turn_off: led
+      - delay: 0.15s
+      - light.turn_on: led
+      - delay: 0.15s
+      - light.turn_off: led
+      - delay: 0.15s
+      - light.turn_on: led
+      - delay: 0.15s
+      - light.turn_off: led
+      - delay: 0.15s
+      - light.turn_on: led
+      - delay: 0.15s
+        #Final state
+      - if:
+          condition:
+            switch.is_off: relay
+          then:
+            light.turn_off: led
+    on_turn_off:
+      #Flash thrice
+      - light.turn_on: led
+      - delay: 0.15s
+      - light.turn_off: led
+      - delay: 0.15s
+      - light.turn_on: led
+      - delay: 0.15s
+      - light.turn_off: led
+      - delay: 0.15s
+      - light.turn_on: led
+      - delay: 0.15s
+      - light.turn_off: led
+      - delay: 0.7s
+      #Final state
+      - if:
+          condition:
+            switch.is_on: relay
+          then:
+            light.turn_on: led
 
 sensor:
   # WiFi Signal Sensor
@@ -220,8 +220,8 @@ sensor:
       accuracy_decimals: 1
       filters:
         - lambda: return x * id(voltage_multiply);
-        #- delta: 0.5
-        #- round: 1
+        - delta: 0.5
+        - round: 1
         
     power:
       name: "Power"
@@ -230,8 +230,8 @@ sensor:
       accuracy_decimals: 1
       filters:
         - lambda: return x * id(power_multiply);
-        #- delta: 10
-        #- round: 0
+        - delta: 10
+        - round: 0
         
     current:
       name: "Current"
@@ -240,8 +240,8 @@ sensor:
       accuracy_decimals: 3
       filters:
         - lambda: return x * id(current_multiply);
-        #- delta: 10
-        #- round: 3
+        - delta: 10
+        - round: 3
           
   # Total daily energy sensor
   - platform: total_daily_energy
@@ -301,18 +301,18 @@ number:
       lambda: |-
         id(current_multiply) = x;
 
-# Relay State LED
-# output:
-#   - platform: esp8266_pwm
-#     id: state_led
-#     pin:
-#       number: GPIO02
-#       inverted: true
+Relay State LED
+output:
+  - platform: esp8266_pwm
+    id: state_led
+    pin:
+      number: GPIO02
+      inverted: true
 
-# light:
-#   - platform: binary
-#     output: state_led
-#     id: led
+light:
+  - platform: binary
+    output: state_led
+    id: led
 
 # Status LED
 status_led:
