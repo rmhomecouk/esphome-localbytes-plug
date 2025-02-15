@@ -314,11 +314,11 @@ light:
     output: state_led
     id: led
 
-# Status LED
-# status_led:
-#   pin:
-#     number: GPIO02
-#     inverted: true
+Status LED
+status_led:
+  pin:
+    number: GPIO02
+    inverted: true
 
     
 button:
