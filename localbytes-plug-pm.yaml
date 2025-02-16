@@ -310,12 +310,12 @@ output:
       inverted: true
 
 light:
-  - platform: binary
-    output: state_led
-    id: led
   - platform: status_led
     output: state_led
-    #id: status_led
+    id: led
+  # - platform: status_led
+  #   output: state_led
+  #   #id: status_led
 
 # #Status LED
 # status_led:
