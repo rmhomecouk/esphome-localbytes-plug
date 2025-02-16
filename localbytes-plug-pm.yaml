@@ -315,7 +315,7 @@ light:
     id: led
   - platform: status_led
     output: state_led
-    id: status_led
+    #id: status_led
 
 # #Status LED
 # status_led:
