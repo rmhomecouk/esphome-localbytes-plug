@@ -301,7 +301,7 @@ number:
       lambda: |-
         id(current_multiply) = x;
 
-Relay State LED
+#Relay State LED
 output:
   - platform: esp8266_pwm
     id: state_led
@@ -314,7 +314,7 @@ light:
     output: state_led
     id: led
 
-Status LED
+#Status LED
 status_led:
   pin:
     number: GPIO02
