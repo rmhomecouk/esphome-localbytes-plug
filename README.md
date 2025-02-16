@@ -9,15 +9,15 @@ Please note this does not enable [API Encryption](https://esphome.io/components/
 
 ```yaml
 substitutions:
-  name: power-<LOCATION>-<NAME>
-  friendly_name: LOCATION NAME POWER
-  area: LOCATION
+  name: power-location-item
+  friendly_name: Location Item Power
+  area: Garage
 
-  calibrated_c: "0.722"
-  calibrated_p: "0.151"
-  calibrated_v: "0.402"
+  calibrated_c: "0.850"
+  calibrated_p: "0.179"
+  calibrated_v: "0.396"
 
-  comment: "Calibrated: 2025-02-15 - c:${calibrated_c} p:${calibrated_p} v:${calibrated_v}"
+  comment: "Calibrated: 2025-02-16 - c:${calibrated_c} p:${calibrated_p} v:${calibrated_v}"
 
   update_interval: 10s
   default_state: "ALWAYS_ON"
