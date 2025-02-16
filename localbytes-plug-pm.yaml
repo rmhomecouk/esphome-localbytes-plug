@@ -117,7 +117,7 @@ switch:
     name: "Disable LED"
     id: disable_led
     icon: "mdi:led-variant-off"
-    restore_mode: RESTORE_DEFAULT_ON
+    restore_mode: RESTORE_DEFAULT_OFF
     optimistic: true
     on_turn_on:
       #Flash twice
