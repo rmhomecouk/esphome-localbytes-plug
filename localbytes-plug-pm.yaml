@@ -220,7 +220,7 @@ sensor:
       accuracy_decimals: 1
       filters:
         - lambda: return x * id(voltage_multiply);
-        - delta: 0.5
+        - throttle_average: ${update_interval}
         - round: 1
         
     power:
@@ -230,8 +230,8 @@ sensor:
       accuracy_decimals: 1
       filters:
         - lambda: return x * id(power_multiply);
-        - delta: 10
-        - round: 0
+        - throttle_average: ${update_interval}
+        - round: 1
         
     current:
       name: "Current"
@@ -240,19 +240,21 @@ sensor:
       accuracy_decimals: 3
       filters:
         - lambda: return x * id(current_multiply);
-        - delta: 10
+        - throttle_average: ${update_interval}
         - round: 3
           
   # Total daily energy sensor
   - platform: total_daily_energy
     name: "Daily Energy"
-    device_class: energy
+    device_class: energy  
+    accuracy_decimals: 3
     power_id: power
     restore: true
     filters:
       # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
     unit_of_measurement: kWh
+    state_class: total_increasing
 
 # Make calibration factor data readable/setable from home assistant
 number:
